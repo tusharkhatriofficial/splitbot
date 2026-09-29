@@ -1,0 +1,14 @@
+name: homeexpensebot
+services:
+  bot:
+    build:
+      context: .
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+    environment:
+      PYTHONUNBUFFERED: "1"
+    mem_limit: 256m
+    cpus: 0.50
